@@ -35,6 +35,8 @@
                 $res_Age = $result['Age'];
                 $res_id = $result['Id'];
                 $res_ProfilePicture = $result['ProfilePicture'];
+
+                $picture_base64 = !empty($res_ProfilePicture) ? 'data:image/jpg;charset=utf8;base64,' . base64_encode($res_ProfilePicture) : "stock.jpg";
             }
             
             echo "<a href='edit.php?Id=$res_id'>Edit Profile</a>";
@@ -46,7 +48,7 @@
     </div>
     <main>
     <div class="bg-white p-4 mr-5 rounded-xl">
-        <img class=" h-[150px] w-[150px]" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($res_ProfilePicture); ?>" /> 
+    <img class="h-[150px] w-[150px]" src="<?php echo $picture_base64; ?>" />
         </div>
        <div class="main-box top">
         <div class="top">
